@@ -1,0 +1,40 @@
+const express = require("express");
+const adminMiddleware = require("../middleware/adminMiddleware");
+const authMiddleware = require("../middleware/authMiddleware");
+
+const {
+  createProject,
+  getProjects,
+  getProjectById,
+  updateProject,
+  deleteProject,
+} = require("../controllers/projectController");
+
+const router = express.Router();
+
+// Public
+router.get("/", getProjects);
+router.get("/:id", getProjectById);
+
+// Admin protected
+router.post(
+  "/",
+  authMiddleware,
+  adminMiddleware,
+  createProject
+);
+
+router.put(
+  "/:id",
+  authMiddleware,
+  adminMiddleware,
+  updateProject
+);
+
+router.delete(
+  "/:id",
+  authMiddleware,
+  adminMiddleware,
+  deleteProject
+);
+module.exports = router;
