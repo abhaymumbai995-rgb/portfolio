@@ -40,7 +40,7 @@ function App() {
     const fetchProjects = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/projects`
+          `${(import.meta.env.VITE_API_URL || "https://portfolio-2-7ap9.onrender.com/api")}/projects`
         );
 
         const data = await response.json();
@@ -79,7 +79,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/contact`,
+        `${(import.meta.env.VITE_API_URL || "https://portfolio-2-7ap9.onrender.com/api")}/contact`,
         {
           method: "POST",
 

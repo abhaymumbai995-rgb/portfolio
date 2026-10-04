@@ -23,7 +23,7 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (o, cb) => cb(null, !o || allowedOrigins.includes(o) || /\.vercel\.app$/.test(o)),
   })
 );
 
