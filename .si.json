@@ -17,6 +17,14 @@
     ".json": {
       "enabled": true,
       "run": "vscode-json-language-server --stdio"
+    },
+    ".html": {
+      "enabled": true,
+      "run": "vscode-html-language-server --stdio"
+    },
+    ".md": {
+      "enabled": false,
+      "run": "marksman server"
     }
   }
 }
